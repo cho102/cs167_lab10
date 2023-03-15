@@ -96,3 +96,6 @@
   ```
 
 * (Q6) What is the total number of results produced by this query (not only the shown ones)?
+  ```text
+  The total number of results produced by this query is 232.
+  ```
