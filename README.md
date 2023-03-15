@@ -85,14 +85,11 @@
 * (Q5) Include the query in your submission.
 
   ```sql
-  SELECT count(8)
-  FROM(
-    SELECT year_month, count(*) AS count FROM (
-    SELECT print_datetime(parse_datetime(date_value, "MM/DD/YYY hh:mm:ss a"), "YYYY/MM") AS year_month
-    FROM ChicagoCrimes) AS ymonths
-    GROUP BY year_month
-    ORDER BY year_month
-  ) AS total;
+  SELECT year_month, COUNT(*) AS count FROM (
+  SELECT print_datetime(parse_datetime(date_value, "MM/DD/YYYY hh:mm:ss a"), "YYYY/MM") AS year_month
+  FROM ChicagoCrimes) AS ymonths
+  GROUP BY year_month
+  ORDER BY year_month;
   ```
 
 * (Q6) What is the total number of results produced by this query (not only the shown ones)?
