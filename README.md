@@ -13,22 +13,48 @@
 
   ```text
   # Replace here with the result
+  [
+        3
+  ]
   ```
 
 * (Q2) Which query did you use and what is the answer?
   
   ```sql
-  /* Replace here with your query */
+  SELECT DISTINCT(primary_type)
+  From ChicagoCrimes
+  WHERE location_description="GAS STATION";
   ```
 
   ```text
-  # Replace here with your answer
+  [
+        {
+                "primary_type": "DECEPTIVE PRACTICE"
+        },
+        {
+                "primary_type": "ROBBERY"
+        },
+        {
+                "primary_type": "THEFT"
+        },
+        {
+                "primary_type": "BATTERY"
+        },
+        {
+                "primary_type": "MOTOR VEHICLE THEFT"
+        }
+  ]  
   ```
 
 * (Q3) Include the query in your README file
 
   ```sql
-  /* Replace here with your query */
+  SELECT year, count(*) AS count FROM (
+    SELECT get_year(parse_datetime(date_value, "MM/DD/YYY hh:mm:ss a")) AS year
+    FROM ChicagoCrimes
+    ) AS years
+  GROUP BY year
+  ORDER BY count desc;
   ```
 
 * (Q4) Which `district` has the most number of crimes? Include the query and the answer in the README file.
